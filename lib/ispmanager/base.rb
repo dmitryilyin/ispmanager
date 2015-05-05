@@ -18,6 +18,15 @@ class ISPManager::Base
 		end
 	end
 
+        def action method, params = {}
+                result = ISPManager::Action.create method, params, @params
+                result = JSON.parse(result)
+                if result.is_a? Hash
+                        result.recursive_symbolize_keys!
+                        return result[:elem] ? result[:elem] : result
+                end
+        end
+
 	class ::Hash
 		def recursive_symbolize_keys!
 			recursive_modify_keys! { |key| key.to_sym }

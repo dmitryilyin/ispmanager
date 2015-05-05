@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "ispmanager"
-  s.version = "0.1.2"
+  s.version = "0.1.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Aleksei Kvitinskii"]
@@ -26,13 +26,10 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "ispmanager.gemspec",
-    "lib/ispmanager.rb",
-    "lib/ispmanager/base.rb",
-    "lib/ispmanager/domain.rb",
     "spec/ispmanager/domain_spec.rb",
     "spec/ispmanager_spec.rb",
     "spec/spec_helper.rb"
-  ]
+  ] + Dir.glob('lib/*.rb') + Dir.glob('lib/ispmanager/*.rb')
   s.homepage = "http://github.com/alexkv/ispmanager"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
